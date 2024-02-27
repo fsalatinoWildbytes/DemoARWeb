@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+}
+
+/*Disable double tap zoom*/
+* {
+  touch-action: manipulation;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+#control {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 100;
+}
+
+/* Centered text */
+.controls-game {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  z-index: 101;
+}
+
+.button-grab {
+  position: fixed;
+  left: 50%;
+  top: 100px;
+  z-index: 102;
+}
+  
+

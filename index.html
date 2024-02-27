@@ -1,48 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>WB - Claw machine</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
+    />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+          "mindar-image-three": "https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"
+        }
+      }
+    </script>
+
+    <script type="text/javascript">
+      document.addEventListener(
+        "touchmove",
+        function (event) {
+          if (event.scale !== 1) {
+            event.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+    </script>
+
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/main.js" defer></script>
   </head>
-
-  <style>
-    .arjs-loader {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .arjs-loader div {
-      text-align: center;
-      font-size: 1.25em;
-      color: white;
-    }
-  </style>
-  <body style="margin : 0px; overflow: hidden;">
-    <!-- minimal loader shown until image descriptors are loaded -->
-    <div class="arjs-loader">
-      <div>Loading, please wait...</div>
+  <body>
+    <div id="control">
+      <button id="startButton">Start</button>
+      <button id="stopButton">Stop</button>
     </div>
-    <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-      <!-- we use cors proxy to avoid cross-origin problems -->
-      <!--
-      ⚠️⚠️⚠️
-      https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
-      You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
-      ⚠️⚠️⚠️
-    -->
-      <a-nft type="nft" 
-      url="https://fsalatinowildbytes.github.io/DemoARWeb/Hiro_marker_ARjs" smooth="false" smoothCount="10" smoothTolerance=".01" smoothThreshold="5" size="0.1">
-        <a-entity gltf-model="https://fsalatinowildbytes.github.io/DemoARWeb/Cube.gltf" scale="20 20 20" position="0 0 0"></a-entity>
-      </a-nft>
-      <a-entity camera></a-entity>
-    </a-scene>
+    
+    <div id="container"></div>
+    
+    <div class="controls-game">
+      <button id="moveUp">Up</button>
+      <button id="moveDown">Down</button>
+      <button id="moveLeft">Left</button>
+      <button id="moveRight">Right</button>
+    </div>
+    
+    <div class="button-grab"><button id="grab">Grab</button></div>
   </body>
 </html>
