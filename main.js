@@ -47,7 +47,7 @@ cubeContainer.position.z = 1.5;
 anchor.group.add(cubeHook);
 anchor.group.add(cubeContainer);
 
-const loader = new GLTFLoader();
+/*const loader = new GLTFLoader();
 
 loader.load(
   "./assets/3d_models/botella.gltf",
@@ -57,21 +57,12 @@ loader.load(
     model.scale.set(5, 5, 5);
     anchor.group.add(model);
 
-
-
-    // wait until the model can be added to the scene without blocking due to shader compilation
-    /*await renderer.compileAsync(model, camera, scene);
-    console.log("model loaded!");
-    model.position.set(0, 0, 0);
-    model.scale.set(5, 5, 5);
-      
-    anchor.group.add(model);*/
   },
   undefined,
   function (error) {
     console.error(error);
   }
-);
+);*/
 
 
 //--------------------- RENDER LOOP -- CAMERA AR -----------------------------
