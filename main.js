@@ -7,7 +7,7 @@ import { createLights } from "./lights.js";
 const mindarThree = new MindARThree({
   container: document.querySelector("#container"),
   imageTargetSrc:
-    "https://cdn.glitch.global/dab4d40c-04b1-43c2-97e0-6e1afd45da75/targets.mind?v=1708948890177",
+    "./assets/targets.mind",
 });
 
 // ------------------- INIT SCENE ---------------------
