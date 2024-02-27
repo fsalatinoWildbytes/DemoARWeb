@@ -74,7 +74,7 @@ loader.load(
 );
 
 
-//--------------------- RENDER LOOP -----------------------------
+//--------------------- RENDER LOOP -- CAMERA AR -----------------------------
 const start = async () => {
   await mindarThree.start();
   
@@ -84,7 +84,7 @@ const start = async () => {
 
     stats.update(); 
 
-    console.log("RENDER AR LOOP");
+    //console.log("RENDER AR LOOP");
 
   });
 };
