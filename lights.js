@@ -11,7 +11,7 @@ function createLights() {
   mainLight.position.set(10, 10, 10);*/
  
   const ambientLight = new DirectionalLight(0xffffff, 3);
-  ambientLight.position.set(1, 1, 1).normalize();
+  ambientLight.position.set(3.5, 3.5, 3.5).normalize();
   return  ambientLight;
 }
 
