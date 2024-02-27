@@ -45,7 +45,7 @@ anchor.group.add(cubeContainer);
 const loader = new GLTFLoader();
 
 loader.load(
-  "./assets/3d_models/botella.gltf",
+  "./assets/3d_models/scene.gltf",
   async function (gltf) {
     const model = gltf.scene;
     //console.log( gltf.scene);
