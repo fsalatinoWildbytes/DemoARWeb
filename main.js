@@ -2,7 +2,8 @@ import * as THREE from "three";
 import { MindARThree } from "mindar-image-three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { createLights } from "./lights.js";
-import Stats from 'three/examples/jsm/libs/stats.module'
+import Stats from 'https://unpkg.com/three@0.125.2/examples/jsm/libs/stats.module.js'
+
 
 //Init MindAR
 const mindarThree = new MindARThree({
