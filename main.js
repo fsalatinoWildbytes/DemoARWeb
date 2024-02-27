@@ -11,6 +11,9 @@ const mindarThree = new MindARThree({
     "./assets/targets.mind",
 });
 
+const stats = new Stats()
+document.body.appendChild(stats.dom)
+
 // ------------------- INIT SCENE ---------------------
 
 const { renderer, scene, camera } = mindarThree;
@@ -69,12 +72,23 @@ loader.load(
   }
 );
 
+
+//--------------------- RENDER LOOP -----------------------------
 const start = async () => {
   await mindarThree.start();
+  
   renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
+
+
+    stats.update(); 
+
+    console.log("RENDER AR LOOP");
+
   });
 };
+
+//---------------------------------------------------
 
 //------LISTENER EVENTS----
 
