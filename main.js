@@ -130,6 +130,6 @@ var render = function () {
     // rotate the cube
     cubeHook.position.z -= 0.01;
 
-    renderer.render(scene, camera);
+    //renderer.render(scene, camera);
   }
 };
