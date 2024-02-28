@@ -20,7 +20,6 @@ document.body.appendChild(stats.dom)
 const { renderer, scene, camera } = mindarThree;
 const anchor = mindarThree.addAnchor(0);
 
-console.log(camera);
 
 //Add light
 const ambientLight = createLights();
@@ -47,10 +46,10 @@ cubeContainer.position.z = 1.5;
 anchor.group.add(cubeHook);
 anchor.group.add(cubeContainer);
 
-/*const loader = new GLTFLoader();
+const loader = new GLTFLoader();
 
 loader.load(
-  "./assets/3d_models/botella.gltf",
+  "./assets/3d_models/botella.glb",
   async function (gltf) {
     const model = gltf.scene;
     //console.log( gltf.scene);
@@ -62,7 +61,7 @@ loader.load(
   function (error) {
     console.error(error);
   }
-);*/
+);
 
 
 //--------------------- RENDER LOOP -- CAMERA AR -----------------------------
