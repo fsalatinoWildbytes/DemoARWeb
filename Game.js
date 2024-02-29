@@ -74,24 +74,28 @@ class Game {
     const {bottleCoke} = await gameScene();
 
     //Add elements to AR scene
-    bottleCoke.scale.set(3, 3, 3); 
-    anchor.group.add(bottleCoke);
+    //bottleCoke.scale.set(3, 3, 3); 
+    //anchor.group.add(bottleCoke);
 
 
     var cokeInstances = [];
-    var totalClone = 10; 
-    var posXClone = -0.8;
 
-    for(var i = 0; i < totalClone; i ++){
+    var posXClone = 0;
+    var posYClone = 0;
 
-      cokeInstances[i] = bottleCoke.clone();
-      posXClone -= 0.8;
-      cokeInstances[i].position.set(posXClone,0,0);
-      anchor.group.add(cokeInstances[i]);
+    var cokeIndex = 0;
+
+    for(var x = 0; x < 3.5; x += 0.5){
+      for(var y = 0; y < 3.5; y += 0.5){
+        cokeInstances[cokeIndex] = bottleCoke.clone();
+        posXClone = x;
+        posYClone = y;
+        cokeInstances[cokeIndex].position.set(posXClone,posYClone,0);
+        anchor.group.add(cokeInstances[cokeIndex]);
+
+        cokeIndex++;
+      }
     }
-    
-
-
   }
 
 
