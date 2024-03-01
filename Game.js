@@ -55,8 +55,8 @@ class Game {
     anchor = this.mindarThree.addAnchor(1);
 
     //Add light
-    const ambientLight = createLights();
-    this.scene.add(ambientLight);
+    //const ambientLight = createLights();
+    //this.scene.add(ambientLight);
   }
 
 
@@ -81,10 +81,11 @@ class Game {
     //cubeContainer.position.z = 1.5;
 
     //Add content to AR scene
-    anchor.group.add(cubeHook);
+    //anchor.group.add(cubeHook);
+    cubeContainer.position.set(0,0,0);
     anchor.group.add(cubeContainer);
 
-    const {bottleCoke, machine} = await gameScene();
+    const {bottleCoke, machine, cube} = await gameScene();
     //machine.position.set(0,0,0);
     //machine.scale.set(2,2,2);
 
@@ -92,7 +93,8 @@ class Game {
 
     //Add elements to AR scene
     //bottleCoke.scale.set(3, 3, 3); 
-    anchor.group.add(bottleCoke);
+    cube.position.set(0,0,0);
+    anchor.group.add(cube);
 
 
     /*var cokeInstances = [];
