@@ -71,14 +71,14 @@ class Game {
     cubeHook = new THREE.Mesh(geometryCubeHook, materialCubeHook);
     cubeHook.position.z = 2;
 
-    const geometryContainer = new THREE.BoxGeometry(1, 1, 3);
+    const geometryContainer = new THREE.BoxGeometry(1, 1, 1);
     const materialContainer = new THREE.MeshBasicMaterial({
       color: 0x000000,
       transparent: true,
       opacity: 0.2,
     });
     const cubeContainer = new THREE.Mesh(geometryContainer, materialContainer);
-    cubeContainer.position.z = 1.5;
+    //cubeContainer.position.z = 1.5;
 
     //Add content to AR scene
     anchor.group.add(cubeHook);
