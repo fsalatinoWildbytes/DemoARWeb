@@ -3,14 +3,17 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 async function gameScene() {
   const loader = new GLTFLoader();
 
-  const [bottleCokeData] = await Promise.all([
+  const [bottleCokeData, machineData] = await Promise.all([
     loader.loadAsync('./assets/3d_models/botella.glb'),
+    loader.loadAsync('./assets/3d_models/claw_machine_50.glb'),
   ]);
 
-  console.log('Squaaawk!', bottleCokeData);
+  //console.log('Squaaawk!', bottleCokeData);
 
   const bottleCoke = bottleCokeData.scene;
-  return { bottleCoke};
+  const machine = machineData.scene;
+
+  return { bottleCoke, machine,};
 
 }
 

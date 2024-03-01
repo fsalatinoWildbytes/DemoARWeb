@@ -1,10 +1,10 @@
 import * as THREE from "three";
-import {MindARThree} from "mindar-image-three";
+import { MindARThree } from "mindar-image-three";
 import { GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
-import {createLights} from "./lights.js";
+import { createLights } from "./lights.js";
 import { gameScene} from './gameAssets.js';
 import Stats from 'https://unpkg.com/three@0.125.2/examples/jsm/libs/stats.module.js'
-
+import config from './config.json' assert { type: 'json' };
 
 var anchor = "";
 var stats = "";
@@ -28,18 +28,31 @@ class Game {
     stats = new Stats()
     document.body.appendChild(stats.dom)
 
+
+    //Read config file
+    var markerARPath = config.marker_ar;
+    console.log(config.marker_ar);
+
      //Init MindAR
     this.mindarThree = new MindARThree({
       container: containerAR,
-      imageTargetSrc: "./assets/targets.mind",
+      imageTargetSrc: markerARPath,
+      filterMinCF: 0.0005,
+      filterBeta: 0.001,
+      warmupTolerance: 3,
+      missTolerance: 3,
+      maxTrack: 2,
     });
+
+
+
 
     const {renderer,scene,camera} = this.mindarThree;
     this.renderer = renderer;
     this.scene = scene; 
     this.camera = camera;
 
-    anchor = this.mindarThree.addAnchor(0);
+    anchor = this.mindarThree.addAnchor(1);
 
     //Add light
     const ambientLight = createLights();
@@ -71,14 +84,18 @@ class Game {
     anchor.group.add(cubeHook);
     anchor.group.add(cubeContainer);
 
-    const {bottleCoke} = await gameScene();
+    const {bottleCoke, machine} = await gameScene();
+    //machine.position.set(0,0,0);
+    //machine.scale.set(2,2,2);
+
+    //anchor.group.add(machine);
 
     //Add elements to AR scene
     //bottleCoke.scale.set(3, 3, 3); 
-    //anchor.group.add(bottleCoke);
+    anchor.group.add(bottleCoke);
 
 
-    var cokeInstances = [];
+    /*var cokeInstances = [];
 
     var posXClone = 0;
     var posYClone = 0;
@@ -95,7 +112,7 @@ class Game {
 
         cokeIndex++;
       }
-    }
+    }*/
   }
 
 
