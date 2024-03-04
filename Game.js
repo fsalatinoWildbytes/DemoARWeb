@@ -80,6 +80,10 @@ class Game {
     const cubeContainer = new THREE.Mesh(geometryContainer, materialContainer);
     //cubeContainer.position.z = 1.5;
 
+    const plane = new THREE.PlaneGeometry( 2, 2 );
+    plane.set.position(0,0,0);
+    anchor.group.add(plane);
+
     //Add content to AR scene
     //anchor.group.add(cubeHook);
     cubeContainer.position.set(0,0,0);
